@@ -1,0 +1,33 @@
+#
+# @lc app=leetcode id=145 lang=python
+#
+# [145] Binary Tree Postorder Traversal
+#
+
+# @lc code=start
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def postorderTraversal(self, root):
+        result=[]
+        def dfs(node):
+            if node is None:
+                return
+            dfs(node.left)
+            dfs(node.right)
+            result.append(node.val)
+        dfs(root)
+        return result
+
+        """
+        :type root: Optional[TreeNode]
+        :rtype: List[int]
+        """
+       
+     
+# @lc code=end
+
