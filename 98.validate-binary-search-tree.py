@@ -1,0 +1,30 @@
+#
+# @lc app=leetcode id=98 lang=python
+#
+# [98] Validate Binary Search Tree
+#
+
+# @lc code=start
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def isValidBST(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: bool
+        """
+        def dfs(node,low,high):
+            if node is None:
+                return True
+            if not low<node.val<high :
+                return False
+            return(dfs(node.left,low,node.val) and 
+                   dfs(node.right,node.val,high))
+        return dfs(root,float("-inf"),float("inf"))
+        
+# @lc code=end
+
